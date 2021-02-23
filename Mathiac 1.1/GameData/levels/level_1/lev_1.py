@@ -51,7 +51,7 @@ class play(Turtle):
         l.s.up()
         l.s.color('Navy Blue')
         l.s.setpos(400,225)
-        for i in range(5):
+        for _ in range(5):
             l.s.write('{o}/5'.format(o=l.an),align='center',font=("Calibri",40,'bold italic'))
             l.t.setpos(0,0)
             l.a=m.create()
@@ -77,10 +77,9 @@ class play(Turtle):
             time.sleep(2)
             l.t.clear()
             l.t.write('Your score is {s}'.format(s=l.score),align='center',font=("Sans serif",40,'bold italic'))
-            f=open("./GameData\ending.txt","r")
-            ef=f.read()
-            print(ef)
-            f.close()
+            with open("./GameData\ending.txt","r") as f:
+                ef=f.read()
+                print(ef)
         else:
             l.t.color('red')
             l.t.write(':(:(:('.format(o=l.an),align='center',font=("Times new Roman",40,'bold italic'))
